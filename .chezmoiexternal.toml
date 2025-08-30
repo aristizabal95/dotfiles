@@ -33,7 +33,7 @@
     type = "file"
     url = "https://raw.githubusercontent.com/aristizabal95/dotfiles/refs/heads/main/custom_nvim/mappings.lua"
     refreshPeriod = "1h"
-[".config/nvim/lua/plugins/init.lua"]
+[".config/nvim/lua/plugins/vim-tmux-navigator.lua"]
     type = "file"
-    url = "https://github.com/aristizabal95/dotfiles/blob/main/custom_nvim/plugins/init.lua"
+    url = "https://github.com/aristizabal95/dotfiles/blob/main/custom_nvim/plugins/vim-tmux-navigator.lua"
     refreshPeriod = "1h"
