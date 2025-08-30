@@ -25,15 +25,7 @@
     refreshPeriod = "1h"
 [".config/nvim"]
     type = "archive"
-    url = "https://github.com/NvChad/starter/archive/master.tar.gz"
+    url = "https://github.com/aristizabal95/NvChad/archive/refs/tags/custom.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".config/nvim/lua/mappings.lua"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/aristizabal95/dotfiles/refs/heads/main/custom_nvim/mappings.lua"
-    refreshPeriod = "1h"
-[".config/nvim/lua/plugins/vim-tmux-navigator.lua"]
-    type = "file"
-    url = "https://github.com/aristizabal95/dotfiles/blob/main/custom_nvim/plugins/vim-tmux-navigator.lua"
-    refreshPeriod = "1h"
