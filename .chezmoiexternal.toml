@@ -15,3 +15,7 @@
     url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
     exact = true
     stripComponents = 1
+[".oh-my-zsh/custom/themes/oxide.zsh-theme"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/aristizabal95/dotfiles/refs/heads/main/custom_themes/oxide.zsh-theme"
+    refreshPeriod = "1h"
