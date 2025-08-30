@@ -1,7 +1,3 @@
-[".tmux/plugins/tpm"]
-    type = "git-repo"
-    url = "https://github.com/tmux-plugins/tpm"
-    refreshPeriod = "1h"
 [".oh-my-zsh"]
     type = "archive"
     url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
@@ -14,3 +10,8 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+[".oh-my-zsh/custom/themes/powerlevel10k"]
+    type = "archive"
+    url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
+    exact = true
+    stripComponents = 1
