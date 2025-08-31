@@ -35,3 +35,9 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+[".oh-my-zsh/custom/plugins/fzf-tab"]
+    type = "archive"
+    url = "https://github.com/Aloxaf/fzf-tab/archive/refs/tags/v1.2.0.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
