@@ -85,6 +85,6 @@ RPROMPT='%F{245}%D{%H:%M:%S}%f'
 # }
 
 # Fire the alarm every second
-autoload -Uz add-zsh-hook
-zmodload zsh/terminfo
-TMOUT=1       # trigger TRAPALRM every second
+# autoload -Uz add-zsh-hook
+# zmodload zsh/terminfo
+# TMOUT=1       # trigger TRAPALRM every second
