@@ -74,15 +74,15 @@ PROMPT=$'\n%{$oxide_limegreen%}%~%{$oxide_reset_color%} ${vcs_info_msg_0_}\n%(?.
 RPROMPT='%F{245}%D{%H:%M:%S}%f'
 
 # Function to update RPROMPT every second
-update_clock() {
-  RPROMPT="%F{245}$(date +'%H:%M:%S')%f"
-  zle && zle reset-prompt       # redraw prompt if ZLE is active
-}
-
-# Setup a repeating timer in Zsh
-TRAPALRM() {
-  update_clock
-}
+# update_clock() {
+#   RPROMPT="%F{245}$(date +'%H:%M:%S')%f"
+#   zle && zle reset-prompt       # redraw prompt if ZLE is active
+# }
+# 
+# # Setup a repeating timer in Zsh
+# TRAPALRM() {
+#   update_clock
+# }
 
 # Fire the alarm every second
 autoload -Uz add-zsh-hook

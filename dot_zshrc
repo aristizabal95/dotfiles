@@ -72,7 +72,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions sudo web-search copyfile copybuffer dirhistory history jsontools)
+plugins=(zsh-autosuggestions sudo web-search copyfile copybuffer dirhistory history jsontools fzf git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -127,3 +127,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # Aliases
 alias ls='ls --color'
+
+# Shell integration
+eval "$(fzf --zsh)"
