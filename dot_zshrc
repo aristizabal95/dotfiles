@@ -131,3 +131,4 @@ alias ls='ls --color'
 # Shell integration
 eval "$(fzf --zsh)"
 eval "$(direnv hook zsh)"
+eval "$(zoxide init zsh)"
