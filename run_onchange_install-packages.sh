@@ -32,7 +32,7 @@ install_pkg() {
 }
 
 # --- Core installs ---
-install_pkg fzf direnv zoxide bat jq git ripgrep tmux
+install_pkg fzf direnv zoxide bat jq git ripgrep tmux eza
 
 # --- Tmux plugins ---
 # start a server but don't attach to it
