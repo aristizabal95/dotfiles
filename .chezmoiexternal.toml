@@ -24,10 +24,8 @@
     url = "https://raw.githubusercontent.com/aristizabal95/dotfiles/refs/heads/main/custom_themes/oxide.zsh-theme"
     refreshPeriod = "1h"
 [".config/nvim"]
-    type = "archive"
-    url = "https://github.com/aristizabal95/NvChad/archive/refs/tags/custom.tar.gz"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/aristizabal95/NvChad.git"
     refreshPeriod = "168h"
 [".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
     type = "archive"
