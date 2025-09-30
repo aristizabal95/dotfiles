@@ -133,8 +133,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Shell integration
-eval "$(fzf --zsh)"
+# eval "$(fzf --zsh)"
 eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 
+alias nvram='while sleep 1; do nvidia-smi | grep -oE "[0-9]+MiB +/ +[0-9]+MiB"; done'
 enable-fzf-tab
