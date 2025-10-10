@@ -28,7 +28,7 @@ install_pkg() {
 }
 
 # --- Base installs ---
-install_pkg fzf direnv git ripgrep bat jq
+install_pkg fzf direnv git ripgrep bat jq zoxide
 
 # --- eza + neovim ---
 if has_cmd apt; then
@@ -46,11 +46,9 @@ if has_cmd apt; then
   $SUDO apt install -y eza
 
   # Neovim (latest via PPA)
-  if ! has_cmd nvim; then
-    $SUDO add-apt-repository -y ppa:neovim-ppa/stable
-    $SUDO apt update -y
-    $SUDO apt install -y neovim
-  fi
+  $SUDO add-apt-repository -y ppa:neovim-ppa/stable
+  $SUDO apt update -y
+  $SUDO apt install -y neovim
 
 else
   # For non-apt package managers just install directly
