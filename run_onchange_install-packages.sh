@@ -28,7 +28,7 @@ install_pkg() {
 }
 
 # --- Base installs ---
-install_pkg fzf direnv git ripgrep bat jq zoxide
+install_pkg fzf direnv git ripgrep bat jq zoxide luarocks
 
 # --- eza + neovim ---
 if has_cmd apt; then
