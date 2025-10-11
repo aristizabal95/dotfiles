@@ -36,17 +36,20 @@ if has_cmd apt; then
 
   # eza (repo version)
   # Try GPG installation and operations, with Termux fallback on failure
-  if ($SUDO apt update -y && \
+  set +e  # Temporarily disable exit on error for GPG section
+  ($SUDO apt update -y && \
         $SUDO apt install -y gpg && \
         $SUDO mkdir -p /etc/apt/keyrings && \
         wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | $SUDO gpg --dearmor -o /etc/apt/keyrings/gierens.gpg && \
         echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | $SUDO tee /etc/apt/sources.list.d/gierens.list && \
         $SUDO chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list && \
         $SUDO apt update && \
-        $SUDO apt install -y eza); then
+        $SUDO apt install -y eza)
+  GPG_EXIT_CODE=$?
+  set -e  # Re-enable exit on error
 
-    # Retry eza installation after Termux recovery
-    echo "Couldn't install GPG for eza"
+  if [ $GPG_EXIT_CODE -ne 0 ]; then
+    echo "Couldn't install GPG for eza - skipping eza installation"
   fi
 
   # Neovim (latest via PPA)
