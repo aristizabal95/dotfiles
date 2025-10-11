@@ -35,15 +35,36 @@ if has_cmd apt; then
   if has_cmd sudo; then SUDO="sudo"; else SUDO=""; fi
 
   # eza (repo version)
-  $SUDO apt update -y
-  $SUDO apt install -y gpg
+  # Try GPG installation and operations, with Termux fallback on failure
+  if ! ($SUDO apt update -y && \
+        $SUDO apt install -y gpg && \
+        $SUDO mkdir -p /etc/apt/keyrings && \
+        wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | $SUDO gpg --dearmor -o /etc/apt/keyrings/gierens.gpg && \
+        echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | $SUDO tee /etc/apt/sources.list.d/gierens.list && \
+        $SUDO chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list && \
+        $SUDO apt update && \
+        $SUDO apt install -y eza); then
 
-  $SUDO mkdir -p /etc/apt/keyrings
-  wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | $SUDO gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
-  echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | $SUDO tee /etc/apt/sources.list.d/gierens.list
-  $SUDO chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
-  $SUDO apt update
-  $SUDO apt install -y eza
+    echo "GPG operations failed, attempting Termux recovery..."
+
+    # Try Termux-specific recovery
+    if ! ($SUDO apt update && \
+          $SUDO apt install -y termux-tools termux-keyring && \
+          $SUDO pkg upgrade -y); then
+      echo "Termux recovery also failed. You may need to manually fix GPG/keyring issues."
+      exit 1
+    fi
+
+    # Retry eza installation after Termux recovery
+    echo "Retrying eza installation after Termux recovery..."
+    $SUDO apt install -y gpg
+    $SUDO mkdir -p /etc/apt/keyrings
+    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | $SUDO gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | $SUDO tee /etc/apt/sources.list.d/gierens.list
+    $SUDO chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+    $SUDO apt update
+    $SUDO apt install -y eza
+  fi
 
   # Neovim (latest via PPA)
   $SUDO add-apt-repository -y ppa:neovim-ppa/stable
