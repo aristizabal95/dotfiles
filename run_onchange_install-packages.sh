@@ -57,7 +57,6 @@ if has_cmd apt; then
 
     # Retry eza installation after Termux recovery
     echo "Retrying eza installation after Termux recovery..."
-    $SUDO apt install -y gpg
     $SUDO mkdir -p /etc/apt/keyrings
     wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | $SUDO gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
     echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | $SUDO tee /etc/apt/sources.list.d/gierens.list
