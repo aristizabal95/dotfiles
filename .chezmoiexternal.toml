@@ -27,10 +27,6 @@
     type = "git-repo"
     url = "https://github.com/aristizabal95/NvChad.git"
     refreshPeriod = "1h"
-[".config/nvim/pack/plugins/start/nvim-dap"]
-    type = "git-repo"
-    url = "https://codeberg.org/mfussenegger/nvim-dap.git"
-    refreshPeriod = "168h"
 [".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
     type = "archive"
     url = "https://github.com/zsh-users/zsh-autosuggestions/archive/refs/tags/v0.7.1.tar.gz"
