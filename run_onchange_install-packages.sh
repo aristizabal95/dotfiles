@@ -32,11 +32,11 @@ install_pkg fzf direnv git ripgrep bat jq zoxide
 
 # --- eza + neovim ---
 if has_cmd apt; then
+  set +e  # Temporarily disable exit on error for GPG section
   if has_cmd sudo; then SUDO="sudo"; else SUDO=""; fi
 
   # eza (repo version)
   # Try GPG installation and operations, with Termux fallback on failure
-  set +e  # Temporarily disable exit on error for GPG section
   ($SUDO apt update -y && \
         $SUDO apt install -y gpg && \
         $SUDO mkdir -p /etc/apt/keyrings && \
@@ -46,7 +46,6 @@ if has_cmd apt; then
         $SUDO apt update && \
         $SUDO apt install -y eza)
   GPG_EXIT_CODE=$?
-  set -e  # Re-enable exit on error
 
   if [ $GPG_EXIT_CODE -ne 0 ]; then
     echo "Couldn't install GPG for eza - skipping eza installation"
@@ -57,6 +56,7 @@ if has_cmd apt; then
   $SUDO apt update -y
   $SUDO apt install -y neovim
 
+  set -e  # Re-enable exit on error
 else
   # For non-apt package managers just install directly
   install_pkg eza neovim
