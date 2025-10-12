@@ -28,7 +28,7 @@ install_pkg() {
 }
 
 # --- Base installs ---
-install_pkg fzf direnv git ripgrep bat jq zoxide nodejs
+install_pkg fzf direnv git ripgrep bat jq zoxide nodejs luarocks
 
 # -- claude code --
 npm install -g @anthropic-ai/claude-code
