@@ -106,7 +106,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Added by microsandbox installer
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/bin:$HOME/.local/bin:$PATH"
 export DYLD_LIBRARY_PATH="$HOME/.local/lib:$DYLD_LIBRARY_PATH"
 alias vim=nvim
 
