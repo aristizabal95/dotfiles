@@ -93,7 +93,7 @@ if has_cmd apt; then
   fi
 
   # Add Neovim PPA
-  $SUDO add-apt-repository -y ppa:neovim-ppa/stable 2>/dev/null
+  $SUDO add-apt-repository -y ppa:neovim-ppa/unstable 2>/dev/null
   NEOVIM_PPA_EXIT_CODE=$?
 
   if [ $NEOVIM_PPA_EXIT_CODE -ne 0 ]; then
