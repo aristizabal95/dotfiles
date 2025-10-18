@@ -112,8 +112,8 @@ install_pkg fzf direnv git ripgrep bat jq zoxide nodejs npm luarocks eza neovim
 
 # -- npm dependencies --
 if has_cmd npm; then
-  npm i -g @anthropic-ai/claude-code
-  npm i -g pyright
+  $SUDO npm i -g @anthropic-ai/claude-code
+  $SUDO npm i -g pyright
 else
   echo "npm not found. Cannot install claude-code."
 fi
